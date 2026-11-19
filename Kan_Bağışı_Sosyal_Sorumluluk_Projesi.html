@@ -1,0 +1,2431 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bir Damla Hayat | Gönüllü Kan Bağışı Farkındalık Platformu</title>
+    <meta name="description" content="İstanbul Esenyurt Üniversitesi Sağlık Hizmetleri Meslek Yüksekokulu Diş Protez Teknolojisi Gönüllülük Çalışmaları Kan Bağışı Farkındalık ve Dijital Gönüllü Kayıt Platformu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #c9182b;
+            --primary-dark: #9e0e1f;
+            --primary-light: #fff1f2;
+            --primary-subtle: #ffe4e6;
+            --wine: #4a0e17;
+            --dark: #0f172a;
+            --slate: #334155;
+            --muted: #64748b;
+            --light-bg: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --success: #059669;
+            --success-light: #ecfdf5;
+            --warning: #d97706;
+            --warning-light: #fffbeb;
+            --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+            --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+            --shadow-lg: 0 20px 35px -10px rgba(201, 24, 43, 0.15), 0 10px 15px -5px rgba(15, 23, 42, 0.04);
+            --radius-sm: 8px;
+            --radius: 14px;
+            --radius-lg: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: var(--dark);
+            background-color: var(--light-bg);
+            line-height: 1.65;
+            font-size: 16px;
+            overflow-x: hidden;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .container {
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------------- PROJE KÜNYESİ BİLGİ ŞERİDİ ---------------- */
+        .academic-badge-strip {
+            background: linear-gradient(90deg, #0b1120 0%, #1e1b2e 100%);
+            color: #cbd5e1;
+            font-size: 12.5px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .academic-badge-strip .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .academic-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .uni-tag {
+            background-color: rgba(201, 24, 43, 0.25);
+            color: #fecdd3;
+            border: 1px solid rgba(244, 63, 94, 0.4);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 0.3px;
+            text-transform: uppercase;
+        }
+
+        .academic-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .academic-right strong {
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        /* ---------------- HEADER & NAVBAR ---------------- */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.2s ease;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 74px;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .logo-symbol {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: 0 4px 12px rgba(201, 24, 43, 0.3);
+            position: relative;
+        }
+
+        .logo-symbol svg {
+            width: 22px;
+            height: 22px;
+            fill: currentColor;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: var(--dark);
+            line-height: 1.1;
+        }
+
+        .logo-subtitle {
+            font-size: 11px;
+            color: var(--muted);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            transition: all 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background-color: var(--primary-light);
+        }
+
+        .nav-cta {
+            background-color: var(--primary) !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(201, 24, 43, 0.25);
+            margin-left: 6px;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark) !important;
+            transform: translateY(-1px);
+        }
+
+        /* Hamburger Butonu */
+        .hamburger-btn {
+            display: none;
+            width: 44px;
+            height: 44px;
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            padding: 10px;
+            flex-direction: column;
+            justify-content: space-around;
+            transition: all 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+            z-index: 1001;
+        }
+
+        .hamburger-btn span {
+            display: block;
+            width: 100%;
+            height: 2.5px;
+            background-color: var(--dark);
+            border-radius: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .hamburger-btn.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger-btn.active span:nth-child(2) {
+            opacity: 0;
+            transform: translateX(-8px);
+        }
+
+        .hamburger-btn.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ---------------- HERO (GİRİŞ) ALANI ---------------- */
+        .hero-section {
+            position: relative;
+            background: radial-gradient(circle at 100% 0%, #fff1f2 0%, #ffffff 50%, #f8fafc 100%);
+            padding: 80px 0 70px;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(201, 24, 43, 0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 0.95fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-light);
+            border: 1px solid var(--primary-subtle);
+            color: var(--primary-dark);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-tag-pulse {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(201, 24, 43, 0.7);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(201, 24, 43, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(201, 24, 43, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(201, 24, 43, 0); }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 46px;
+            line-height: 1.18;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-title span {
+            color: var(--primary);
+            font-style: italic;
+            position: relative;
+        }
+
+        .hero-desc {
+            font-size: 17px;
+            color: var(--slate);
+            margin-bottom: 32px;
+            line-height: 1.7;
+            max-width: 580px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 26px;
+            border-radius: var(--radius-sm);
+            font-size: 14.5px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            box-shadow: 0 6px 18px rgba(201, 24, 43, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(201, 24, 43, 0.4);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: var(--surface);
+            color: var(--dark);
+            border-color: var(--border);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-bg);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+
+        /* Hero Sağ Taraf: Etki & İstatistik Kartı */
+        .hero-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 18px;
+            margin-bottom: 22px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero-card-header h3 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .live-tag {
+            font-size: 11px;
+            background-color: var(--success-light);
+            color: var(--success);
+            padding: 3px 9px;
+            border-radius: 20px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .live-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--success);
+            border-radius: 50%;
+        }
+
+        .stat-rows {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background-color: var(--light-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .stat-item:hover {
+            border-color: var(--primary-subtle);
+            background-color: var(--primary-light);
+        }
+
+        .stat-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-label {
+            font-size: 13px;
+            color: var(--muted);
+            font-weight: 600;
+        }
+
+        .stat-sub {
+            font-size: 11.5px;
+            color: #94a3b8;
+        }
+
+        .stat-val {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-callout {
+            margin-top: 20px;
+            padding: 14px;
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            color: var(--wine);
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            line-height: 1.5;
+        }
+
+        .stat-callout strong {
+            font-weight: 700;
+        }
+
+        /* ---------------- BÖLÜM ŞABLONU ---------------- */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .bg-white {
+            background-color: var(--surface);
+        }
+
+        .bg-soft {
+            background-color: #f8fafc;
+        }
+
+        .section-header {
+            margin-bottom: 44px;
+            text-align: center;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-eyebrow {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 14px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        /* ---------------- BÖLÜM 1: NEDEN BAĞIŞ YAPMALIYIZ? ---------------- */
+        .why-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow);
+            border-color: var(--border-hover);
+        }
+
+        .card-top-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: var(--primary-light);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 22px;
+            border: 1px solid var(--primary-subtle);
+        }
+
+        .feature-card h3 {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 18px;
+        }
+
+        .points-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .points-list li {
+            position: relative;
+            padding-left: 26px;
+            font-size: 14.5px;
+            color: var(--slate);
+        }
+
+        .points-list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            border: 2px solid var(--primary);
+        }
+
+        .points-list strong {
+            display: block;
+            color: var(--dark);
+            font-size: 15px;
+            margin-bottom: 2px;
+            font-weight: 700;
+        }
+
+        /* ---------------- BÖLÜM 2: KAN GRUBU UYUM PANELİ ---------------- */
+        .blood-matrix-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow);
+        }
+
+        .blood-selector-desc {
+            text-align: center;
+            font-size: 14px;
+            color: var(--muted);
+            margin-bottom: 18px;
+            font-weight: 600;
+        }
+
+        .blood-btn-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+            margin-bottom: 32px;
+        }
+
+        .blood-chip {
+            padding: 14px 6px;
+            background: var(--light-bg);
+            border: 2px solid var(--border);
+            border-radius: var(--radius);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 17px;
+            font-weight: 800;
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-align: center;
+        }
+
+        .blood-chip:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .blood-chip.active {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-color: var(--primary-dark);
+            color: white;
+            box-shadow: 0 6px 16px rgba(201, 24, 43, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .blood-results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .blood-res-box {
+            background-color: var(--light-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .blood-res-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--muted);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .current-badge {
+            background-color: var(--dark);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+        }
+
+        .tags-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            min-height: 48px;
+            align-items: center;
+        }
+
+        .blood-tag {
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .tag-give {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            border: 1px solid var(--primary-subtle);
+        }
+
+        .tag-take {
+            background-color: #ecfdf5;
+            color: #047857;
+            border: 1px solid #a7f3d0;
+        }
+
+        .blood-note-box {
+            background: #fff;
+            border: 1px solid #fed7aa;
+            border-left: 4px solid var(--warning);
+            padding: 18px 22px;
+            border-radius: var(--radius-sm);
+            font-size: 14.5px;
+            color: #7c2d12;
+            line-height: 1.6;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        /* ---------------- BÖLÜM 3: HIZLI UYGUNLUK TESTİ ---------------- */
+        .quiz-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            box-shadow: var(--shadow-sm);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .quiz-row {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .quiz-row:first-child {
+            padding-top: 0;
+        }
+
+        .quiz-row.error-highlight {
+            background-color: #fff1f2;
+            border-radius: 8px;
+            padding: 14px;
+            border: 1px solid #fecaca;
+        }
+
+        .quiz-question {
+            font-size: 15.5px;
+            font-weight: 600;
+            color: var(--dark);
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .quiz-question span {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--muted);
+            margin-top: 3px;
+        }
+
+        .quiz-options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .custom-radio {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 18px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+            background: var(--light-bg);
+        }
+
+        .custom-radio:hover {
+            border-color: var(--border-hover);
+            background: white;
+        }
+
+        .custom-radio input {
+            accent-color: var(--primary);
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
+        .quiz-actions {
+            margin-top: 28px;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .quiz-feedback {
+            margin-top: 24px;
+            padding: 20px;
+            border-radius: var(--radius);
+            font-size: 14.5px;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .feedback-success {
+            display: block;
+            background-color: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+        }
+
+        .feedback-warning {
+            display: block;
+            background-color: #fffbeb;
+            border: 1px solid #fde68a;
+            color: #92400e;
+        }
+
+        /* ---------------- BÖLÜM 4: BAĞIŞ NOKTALARI ---------------- */
+        .table-responsive {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 14.5px;
+        }
+
+        th {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            font-weight: 700;
+            padding: 16px 22px;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 18px 22px;
+            border-bottom: 1px solid var(--border);
+            color: var(--slate);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background-color: #f8fafc;
+        }
+
+        .location-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            background-color: #ecfdf5;
+            color: #047857;
+        }
+
+        /* ---------------- BÖLÜM 5: 10 SORU & CEVAP (SSS) ---------------- */
+        .faq-filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            max-width: 380px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 18px 12px 42px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 14px;
+            background-color: var(--surface);
+            color: var(--dark);
+            transition: all 0.2s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(201, 24, 43, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .category-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .pill-btn {
+            padding: 9px 16px;
+            background-color: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 13.5px;
+            font-weight: 600;
+            color: var(--slate);
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .pill-btn:hover {
+            border-color: var(--border-hover);
+            color: var(--dark);
+        }
+
+        .pill-btn.active {
+            background-color: var(--dark);
+            border-color: var(--dark);
+            color: white;
+        }
+
+        .faq-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .faq-item.open {
+            border-color: var(--primary-subtle);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .faq-btn {
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            padding: 20px 24px;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .faq-btn:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon-indicator {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--muted);
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-icon-indicator {
+            transform: rotate(45deg);
+            background: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 24px 22px 24px;
+            font-size: 14.5px;
+            color: var(--slate);
+            line-height: 1.7;
+            border-top: 1px solid #f8fafc;
+            padding-top: 14px;
+        }
+
+        .faq-item.open .faq-answer {
+            display: block;
+        }
+
+        /* ---------------- BÖLÜM 6: GÖNÜLLÜ KAYIT VE KATILIM KARTI ---------------- */
+        .registration-wrapper {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .form-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .input-group label {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .input-control {
+            width: 100%;
+            padding: 13px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-sm);
+            font-size: 14.5px;
+            background-color: var(--surface);
+            color: var(--dark);
+            font-family: inherit;
+            transition: all 0.15s ease;
+        }
+
+        .input-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(201, 24, 43, 0.1);
+        }
+
+        .input-highlight {
+            animation: fieldPulse 1.2s ease;
+        }
+
+        @keyframes fieldPulse {
+            0% { border-color: var(--primary); box-shadow: 0 0 0 6px rgba(201, 24, 43, 0.25); }
+            100% { border-color: var(--border); box-shadow: none; }
+        }
+
+        .form-alert {
+            display: none;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            background-color: #fef2f2;
+            border: 1px solid #fecaca;
+            color: var(--primary-dark);
+            font-size: 13.5px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        /* ---------------- DİJİTAL SERTİFİKA / KATILIM KARTI ---------------- */
+        .certificate-container {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .certificate-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fffcfc 100%);
+            border: 2px solid #0f172a;
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-watermark {
+            position: absolute;
+            right: -40px;
+            bottom: -40px;
+            font-size: 200px;
+            color: rgba(201, 24, 43, 0.04);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .cert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 24px;
+        }
+
+        .cert-institution {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .cert-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: var(--dark);
+        }
+
+        .cert-badge-no {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 800;
+            background: var(--light-bg);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 6px;
+            color: var(--dark);
+        }
+
+        .cert-details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px 24px;
+            margin-bottom: 28px;
+        }
+
+        .cert-field {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .cert-field-label {
+            font-size: 12px;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+        }
+
+        .cert-field-val {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .cert-blood-accent {
+            color: var(--primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 18px;
+        }
+
+        .cert-notice {
+            font-size: 12.5px;
+            color: var(--muted);
+            background: var(--light-bg);
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            line-height: 1.6;
+            margin-bottom: 28px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .cert-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .mail-sent-toast {
+            display: none;
+            margin-top: 14px;
+            padding: 12px 16px;
+            background-color: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            color: #065f46;
+            border-radius: var(--radius-sm);
+            font-size: 13.5px;
+            font-weight: 600;
+        }
+
+        /* ---------------- FOOTER & PROJE KÜNYESİ ---------------- */
+        footer {
+            background-color: #0b1120;
+            color: #94a3b8;
+            padding: 60px 0 30px;
+            border-top: 1px solid #1e293b;
+            font-size: 13.5px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-col p {
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .student-credits {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .student-credits li {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .student-credits strong {
+            color: #e2e8f0;
+            font-size: 14px;
+        }
+
+        .student-credits span {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 12.5px;
+        }
+
+        /* ---------------- YAZDIRMA (PRINT) KURALLARI ---------------- */
+        @media print {
+            .academic-badge-strip,
+            header,
+            .hero-section,
+            section#neden-bagis,
+            section#uyum-tablosu,
+            section#uygunluk-testi,
+            section#bagis-noktalari,
+            section#sik-sorulanlar,
+            #kayitFormKapsayici,
+            .admin-trigger-bar,
+            .modal-overlay,
+            footer,
+            .cert-actions {
+                display: none !important;
+            }
+
+            body, html {
+                background: white !important;
+                color: black !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+            }
+
+            section#gonullu-kayit {
+                border: none !important;
+                padding: 0 !important;
+            }
+
+            .certificate-container {
+                display: block !important;
+            }
+
+            .certificate-card {
+                box-shadow: none !important;
+                border: 2px solid #000 !important;
+                margin: 20px auto !important;
+                width: 90% !important;
+            }
+        }
+
+        /* ---------------- MOBİL & DUYARLI TASARIM (RESPONSIVE) ---------------- */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .why-cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blood-btn-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-btn {
+                display: flex !important;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 74px;
+                left: 0;
+                right: 0;
+                background: white;
+                border-bottom: 2px solid var(--border);
+                padding: 20px;
+                gap: 12px;
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                display: flex !important;
+            }
+
+            .hero-title {
+                font-size: 34px;
+            }
+
+            .blood-results-grid,
+            .form-grid-2,
+            .cert-details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card,
+            .blood-matrix-card,
+            .feature-card,
+            .quiz-card,
+            .certificate-card {
+                padding: 24px;
+            }
+
+            .academic-badge-strip .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. ÜST BİLGİ VE AKADEMİK KÜNYE ŞERİDİ -->
+    <div class="academic-badge-strip">
+        <div class="container">
+            <div class="academic-left">
+                <span class="uni-tag">Esenyurt Üniversitesi SHMYO</span>
+                <span>Diş Protez Teknolojisi &bull; Gönüllülük Çalışmaları Dersi</span>
+            </div>
+            <div class="academic-right">
+                <span>Proje Ekibi: <strong>Bir Damla Hayat</strong></span>
+                <span>Danışman: <strong>Öğr. Gör. Betül Kaya Başer</strong></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. STICKY NAVBAR -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo">
+                <div class="logo-symbol">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">Bir Damla Hayat</span>
+                    <span class="logo-subtitle">Gönüllü Kan Bağışı Projesi</span>
+                </div>
+            </a>
+
+            <!-- Mobil Hamburger Düğmesi (Animasyonlu 3 Çizgi) -->
+            <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Menüyü Aç/Kapat">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#neden-bagis">Neden Bağış?</a></li>
+                <li><a href="#uyum-tablosu">Kan Grubu Uyumu</a></li>
+                <li><a href="#uygunluk-testi">Uygunluk Testi</a></li>
+                <li><a href="#bagis-noktalari">Bağış Noktaları</a></li>
+                <li><a href="#sik-sorulanlar">10 Soru & Cevap</a></li>
+                <li><a href="#gonullu-kayit" class="nav-cta">Gönüllü Ol</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 3. HERO (GİRİŞ) BÖLÜMÜ -->
+    <div class="hero-section">
+        <div class="hero-pattern"></div>
+        <div class="container hero-grid">
+            <div>
+                <div class="hero-tag">
+                    <span class="hero-tag-pulse"></span>
+                    <span>Sosyal Sorumluluk &bull; Dönem Projesi</span>
+                </div>
+                <h1 class="hero-title">
+                    Bir Ünite Kanla, <span>3 Farklı Cana</span> Umut Olun
+                </h1>
+                <p class="hero-desc">
+                    Kan, laboratuvar ortamında üretilemeyen ve kaynağı sadece insan olan yaşamsal bir dokudur. 
+                    Bu platform; toplumdaki bilgi eksikliklerini gidermek, bağış uygunluğunuzu hızlıca test etmek 
+                    ve gönüllü bağışçı kaydı oluşturarak hayat kurtarma zincirine katılmanız için hazırlanmıştır.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#gonullu-kayit" class="btn btn-primary">Gönüllü Katılım Formu &rarr;</a>
+                    <a href="#uygunluk-testi" class="btn btn-secondary">Bağışa Uygun Muyum?</a>
+                </div>
+            </div>
+
+            <!-- Canlı İstatistik ve Kampanya Kartı -->
+            <div class="hero-card">
+                <div class="hero-card-header">
+                    <h3>Kampanya Etki Göstergeleri</h3>
+                    <div class="live-tag">
+                        <span class="live-dot"></span> Canlı Veri
+                    </div>
+                </div>
+
+                <div class="stat-rows">
+                    <div class="stat-item">
+                        <div class="stat-info">
+                            <span class="stat-label">Kayıtlı Gönüllü Bağışçı</span>
+                            <span class="stat-sub">Platform üzerinden beyan veren</span>
+                        </div>
+                        <span class="stat-val" id="statVolunteers">142</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-info">
+                            <span class="stat-label">Potansiyel Kurtarılan Can</span>
+                            <span class="stat-sub">1 Ünite Kan = 3 Yaşam (1x3)</span>
+                        </div>
+                        <span class="stat-val" id="statLives">426</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-info">
+                            <span class="stat-label">Ortalama İşlem Süresi</span>
+                            <span class="stat-sub">Kayıt, muayene ve dinlenme dahil</span>
+                        </div>
+                        <span class="stat-val" style="color: var(--dark); font-size: 22px;">15-20 Dk</span>
+                    </div>
+                </div>
+
+                <div class="stat-callout">
+                    <span>💡</span>
+                    <div>
+                        <strong>Biliyor muydunuz?</strong> Trombosit hücrelerinin raf ömrü sadece 5 gündür. Bu yüzden tek seferlik değil, düzenli bağış kritik öneme sahiptir.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. BÖLÜM 1: NEDEN BAĞIŞ YAPMALIYIZ? -->
+    <section id="neden-bagis" class="bg-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Toplumsal Bilinç</span>
+                <h2 class="section-title">Neden Kan Bağışında Bulunmalıyız?</h2>
+                <p class="section-desc">Kan bağışı hem acil servislerde bekleyen binlerce hastaya can suyu olmakta hem de bağışçının kendi fizyolojik yenilenmesini desteklemektedir.</p>
+            </div>
+
+            <div class="why-cards-grid">
+                <!-- Kart 1: İnsani & Toplumsal Boyut -->
+                <div class="feature-card">
+                    <div class="card-top-icon">❤️</div>
+                    <h3>Toplumsal ve İnsani Önemi</h3>
+                    <ul class="points-list">
+                        <li>
+                            <strong>1 Ünite Kan 3 Hayat Demektir</strong>
+                            Bağışlanan tam kan; eritrosit, trombosit ve plazma olarak ayrıştırılarak üç ayrı hastanın tedavisinde kullanılır.
+                        </li>
+                        <li>
+                            <strong>Yapay Olarak İmal Edilemez</strong>
+                            Modern tıbbın ulaştığı tüm teknolojiye rağmen kanın tek fabrikası ve kaynağı sağlıklı insan bedenidir.
+                        </li>
+                        <li>
+                            <strong>Acil Değil, Sürekli Bir İhtiyaçtır</strong>
+                            Doğal afetler, ameliyatlar, lösemi tedavileri ve trafik kazalarında her an taze kan stoğuna gereksinim vardır.
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kart 2: Bağışçı Sağlığına Faydaları -->
+                <div class="feature-card">
+                    <div class="card-top-icon">🩺</div>
+                    <h3>Bağışçının Kendi Sağlığına Katkıları</h3>
+                    <ul class="points-list">
+                        <li>
+                            <strong>Kemik İliğini Uyarır & Hücreleri Yeniler</strong>
+                            Bağış sonrasında kemik iliği harekete geçerek taze ve genç kan hücreleri üretir; vücut zindelik kazanır.
+                        </li>
+                        <li>
+                            <strong>Kalp-Damar Sağlığını Korur</strong>
+                            Kandaki aşırı demir yükünü ve kan viskozitesini (koyuluğunu) dengeleyerek damar tıkanıklığı riskini azaltmaya yardımcı olur.
+                        </li>
+                        <li>
+                            <strong>Ücretsiz Mini Check-Up İmkânı</strong>
+                            Her bağış öncesinde tansiyon, nabız, hemoglobin ölçülür ve bağışlanan kan Hepatit, HIV ve Sifiliz testlerinden geçirilir.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. BÖLÜM 2: KAN GRUBU UYUM PANELİ -->
+    <section id="uyum-tablosu" class="bg-soft">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Etkileşimli Rehber</span>
+                <h2 class="section-title">Kan Grubu Uyum Analizi</h2>
+                <p class="section-desc">Kendi kan grubunuzu seçin; acil durumlarda hangi gruplara kan verebileceğinizi ve kimlerden kan kabul edebileceğinizi anında görün.</p>
+            </div>
+
+            <div class="blood-matrix-card">
+                <p class="blood-selector-desc">Lütfen incelemek istediğiniz kan grubuna tıklayınız:</p>
+                <div class="blood-btn-grid" id="bloodChipsGrid">
+                    <button type="button" class="blood-chip active" data-grup="0-">0 Rh-</button>
+                    <button type="button" class="blood-chip" data-grup="0+">0 Rh+</button>
+                    <button type="button" class="blood-chip" data-grup="A-">A Rh-</button>
+                    <button type="button" class="blood-chip" data-grup="A+">A Rh+</button>
+                    <button type="button" class="blood-chip" data-grup="B-">B Rh-</button>
+                    <button type="button" class="blood-chip" data-grup="B+">B Rh+</button>
+                    <button type="button" class="blood-chip" data-grup="AB-">AB Rh-</button>
+                    <button type="button" class="blood-chip" data-grup="AB+">AB Rh+</button>
+                </div>
+
+                <div class="blood-results-grid">
+                    <div class="blood-res-box">
+                        <div class="blood-res-title">
+                            <span>Kimlere Kan Verebilir?</span>
+                            <span class="current-badge" id="badgeGive">0 Rh-</span>
+                        </div>
+                        <div class="tags-wrapper" id="listGive"></div>
+                    </div>
+
+                    <div class="blood-res-box">
+                        <div class="blood-res-title">
+                            <span>Kimlerden Kan Alabilir?</span>
+                            <span class="current-badge" id="badgeTake">0 Rh-</span>
+                        </div>
+                        <div class="tags-wrapper" id="listTake"></div>
+                    </div>
+                </div>
+
+                <div class="blood-note-box" id="bloodClinicalNote">
+                    <span>🔬</span>
+                    <div id="bloodNoteContent">Yükleniyor...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. BÖLÜM 3: BAĞIŞ UYGUNLUK HIZLI TESTİ -->
+    <section id="uygunluk-testi" class="bg-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Ön Eleme Kontrolü</span>
+                <h2 class="section-title">Bağışa Uygun Musunuz?</h2>
+                <p class="section-desc">Kızılay standartlarına göre hazırlanmış 4 temel soruyu yanıtlayarak bağış öncesi durumunuzu saniyeler içinde öğrenin.</p>
+            </div>
+
+            <div class="quiz-card">
+                <div class="quiz-row" id="rowQ1">
+                    <div class="quiz-question">
+                        1. Yaşınız 18 ile 65 arasında mı?
+                        <span>İlk kez bağış yapacaklar için üst sınır 61 yaştır.</span>
+                    </div>
+                    <div class="quiz-options">
+                        <label class="custom-radio"><input type="radio" name="q1" value="evet"> Evet</label>
+                        <label class="custom-radio"><input type="radio" name="q1" value="hayir"> Hayır</label>
+                    </div>
+                </div>
+
+                <div class="quiz-row" id="rowQ2">
+                    <div class="quiz-question">
+                        2. Vücut ağırlığınız 50 kg ve üzerinde mi?
+                        <span>Kan hacminin güvenli alınabilmesi için taban ağırlıktır.</span>
+                    </div>
+                    <div class="quiz-options">
+                        <label class="custom-radio"><input type="radio" name="q2" value="evet"> Evet</label>
+                        <label class="custom-radio"><input type="radio" name="q2" value="hayir"> Hayır</label>
+                    </div>
+                </div>
+
+                <div class="quiz-row" id="rowQ3">
+                    <div class="quiz-question">
+                        3. Son 1 yıl içinde dövme, piercing, hacamat veya cerrahi operasyon geçirdiniz mi?
+                        <span>Enfeksiyon pencere dönemini dışlamak için zorunludur.</span>
+                    </div>
+                    <div class="quiz-options">
+                        <label class="custom-radio"><input type="radio" name="q3" value="evet"> Evet</label>
+                        <label class="custom-radio"><input type="radio" name="q3" value="hayir"> Hayır</label>
+                    </div>
+                </div>
+
+                <div class="quiz-row" id="rowQ4">
+                    <div class="quiz-question">
+                        4. Son 48 saatte antibiyotik kullandınız mı veya son 3 ayda kan bağışladınız mı?
+                        <span>Erkekler için 90 gün, kadınlar için 120 gün ara şarttır.</span>
+                    </div>
+                    <div class="quiz-options">
+                        <label class="custom-radio"><input type="radio" name="q4" value="evet"> Evet</label>
+                        <label class="custom-radio"><input type="radio" name="q4" value="hayir"> Hayır</label>
+                    </div>
+                </div>
+
+                <div class="quiz-actions">
+                    <button type="button" class="btn btn-primary" id="btnEvalQuiz">Sonucu Değerlendir</button>
+                    <button type="button" class="btn btn-secondary" id="btnResetQuiz">Seçimleri Temizle</button>
+                </div>
+
+                <div class="quiz-feedback" id="quizFeedbackBox"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. BÖLÜM 4: BAĞIŞ NOKTALARI VE TAKVİM -->
+    <section id="bagis-noktalari" class="bg-soft">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Mobil & Sabit Merkezler</span>
+                <h2 class="section-title">Bağış Noktaları ve Kampanya Takvimi</h2>
+                <p class="section-desc">Size en yakın lokasyonu inceleyin; "Bu Noktayı Seç" düğmesine tıklayarak kayıt formuna otomatik olarak aktarın.</p>
+            </div>
+
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Lokasyon / Bağış Noktası</th>
+                            <th>Tarih & Çalışma Saatleri</th>
+                            <th>Adres / Tarif</th>
+                            <th>Durum</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Esenyurt Üniversitesi Merkez Kampüs</strong></td>
+                            <td>Hafta İçi Her Gün &bull; 10:00 - 17:30</td>
+                            <td>Öğrenci Meydanı Mobil Kızılay Tırı</td>
+                            <td><span class="location-badge">● Aktif</span></td>
+                            <td><button type="button" class="btn btn-secondary btn-sm select-spot-btn" data-spot="Esenyurt Üniversitesi Merkez Kampüs">Bu Noktayı Seç</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Esenyurt Kızılay Kan Bağış Merkezi</strong></td>
+                            <td>Pazartesi - Cumartesi &bull; 09:00 - 18:30</td>
+                            <td>Doğan Araslı Bulvarı No:42 Esenyurt Meydan</td>
+                            <td><span class="location-badge">● Sabit Merkez</span></td>
+                            <td><button type="button" class="btn btn-secondary btn-sm select-spot-btn" data-spot="Esenyurt Kızılay Kan Bağış Merkezi">Bu Noktayı Seç</button></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Beylikdüzü Metrobüs Meydanı Çadırı</strong></td>
+                            <td>Haftanın 7 Günü &bull; 11:00 - 19:30</td>
+                            <td>Metrobüs Çıkışı Mobil Kan Alma İstasyonu</td>
+                            <td><span class="location-badge">● Aktif Çadır</span></td>
+                            <td><button type="button" class="btn btn-secondary btn-sm select-spot-btn" data-spot="Beylikdüzü Metrobüs Meydanı Çadırı">Bu Noktayı Seç</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. BÖLÜM 5: 10 SORU & CEVAP (TÜRKÇE ARAMA DÜZELTİLMİŞ) -->
+    <section id="sik-sorulanlar" class="bg-white">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Merak Edilenler</span>
+                <h2 class="section-title">Kan Bağışı Hakkında 10 Soru & Cevap</h2>
+                <p class="section-desc">Bağış süreci, sağlık kriterleri ve toplumda doğru bilinen yanlışlara dair hazırladığımız bilgilendirme rehberi.</p>
+            </div>
+
+            <div class="faq-filter-bar">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="faqSearchInput" class="search-input" placeholder="Kelime ara (örn: kilo, dövme, acı, oruç)...">
+                </div>
+                <div class="category-pills" id="faqFilterPills">
+                    <button type="button" class="pill-btn active" data-cat="all">Tümü (10)</button>
+                    <button type="button" class="pill-btn" data-cat="surec">Bağış Süreci</button>
+                    <button type="button" class="pill-btn" data-cat="sartlar">Şartlar & Uygunluk</button>
+                    <button type="button" class="pill-btn" data-cat="yanlislar">Doğru Bilinen Yanlışlar</button>
+                </div>
+            </div>
+
+            <div class="faq-accordion" id="faqAccordion"></div>
+        </div>
+    </section>
+
+    <!-- 9. BÖLÜM 6: GÖNÜLLÜ KAYIT FORMU & DİJİTAL KATILIM KARTI -->
+    <section id="gonullu-kayit" class="bg-soft">
+        <div class="container registration-wrapper">
+            <div class="section-header">
+                <span class="section-eyebrow">Toplumsal Katılım</span>
+                <h2 class="section-title">Gönüllü Bağışçı Kayıt Formu</h2>
+                <p class="section-desc">Gönüllü bağışçı beyanında bulunarak adınıza özel hazırlanan dijital katılım belgenizi oluşturun.</p>
+            </div>
+
+            <!-- Kayıt Formu Kartı -->
+            <div class="form-card" id="kayitFormKapsayici">
+                <form id="volunteerForm">
+                    <div class="form-grid-2">
+                        <div class="input-group">
+                            <label for="fName">Adınız ve Soyadınız *</label>
+                            <input type="text" id="fName" class="input-control" placeholder="Örn: Caner Özdemir" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="fBlood">Kan Grubunuz *</label>
+                            <select id="fBlood" class="input-control" required>
+                                <option value="">Seçiniz...</option>
+                                <option value="0 Rh-">0 Rh- (Genel Verici)</option>
+                                <option value="0 Rh+">0 Rh+</option>
+                                <option value="A Rh-">A Rh-</option>
+                                <option value="A Rh+">A Rh+</option>
+                                <option value="B Rh-">B Rh-</option>
+                                <option value="B Rh+">B Rh+</option>
+                                <option value="AB Rh-">AB Rh-</option>
+                                <option value="AB Rh+">AB Rh+ (Genel Alıcı)</option>
+                                <option value="Bilinmiyor">Henüz Bilmiyorum (Ölçüm Yapılsın)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="input-group">
+                            <label for="fContact">Telefon Numaranız veya E-posta *</label>
+                            <input type="text" id="fContact" class="input-control" placeholder="Örn: 0542 000 00 00 veya ornek@mail.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="fSpot">Tercih Edilen Bağış Noktası *</label>
+                            <select id="fSpot" class="input-control" required>
+                                <option value="Esenyurt Üniversitesi Merkez Kampüs">Esenyurt Üniversitesi Merkez Kampüs</option>
+                                <option value="Esenyurt Kızılay Kan Bağış Merkezi">Esenyurt Kızılay Kan Bağış Merkezi</option>
+                                <option value="Beylikdüzü Metrobüs Meydanı Çadırı">Beylikdüzü Metrobüs Meydanı Çadırı</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-alert" id="formErrorBox">Lütfen tüm zorunlu alanları eksiksiz ve geçerli biçimde doldurunuz.</div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 16px;">
+                        Gönüllü Beyanını Tamamla & Kartımı Oluştur &rarr;
+                    </button>
+                </form>
+            </div>
+
+            <!-- Dijital Katılım Belgesi (Başlangıçta Gizli) -->
+            <div class="certificate-container" id="certContainer">
+                <div class="certificate-card" id="printableCard">
+                    <div class="cert-watermark">KIZILAY</div>
+                    <div class="cert-header">
+                        <div>
+                            <div class="cert-institution">İSTANBUL ESENYURT ÜNİVERSİTESİ &bull; SOSYAL SORUMLULUK PROJESİ</div>
+                            <h3>Gönüllü Kan Bağışçısı Katılım Belgesi</h3>
+                        </div>
+                        <div class="cert-badge-no" id="certBadgeId">#BDH-143</div>
+                    </div>
+
+                    <div class="cert-details-grid">
+                        <div class="cert-field">
+                            <span class="cert-field-label">Gönüllü Bağışçı</span>
+                            <span class="cert-field-val" id="certName">-</span>
+                        </div>
+                        <div class="cert-field">
+                            <span class="cert-field-label">Beyan Edilen Kan Grubu</span>
+                            <span class="cert-field-val cert-blood-accent" id="certBlood">-</span>
+                        </div>
+                        <div class="cert-field">
+                            <span class="cert-field-label">Hedef Bağış Merkezi</span>
+                            <span class="cert-field-val" id="certLocation">-</span>
+                        </div>
+                        <div class="cert-field">
+                            <span class="cert-field-label">Düzenleme Tarihi</span>
+                            <span class="cert-field-val" id="certDate">-</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-notice">
+                        <strong>Tebrikler!</strong> Bu belge, Bir Damla Hayat projesi kapsamında toplumsal dayanışmaya verdiğiniz gönüllü desteği simgeler. Kayıt bilgileriniz hazırlandı.
+                    </div>
+
+                    <div class="cert-actions">
+                        <!-- Doğrudan <a> etiketi olarak tanımlanmış mailto bağlantısı (iOS Safari için en uyumlu yol) -->
+                        <a href="mailto:forceb43@gmail.com" class="btn btn-primary btn-sm" id="btnSendMail">
+                            📩 E-Posta Uygulamasıyla Gönder
+                        </a>
+                        <!-- iOS Safari ve tüm cihazlar için %100 çalışan Web Gmail Butonu -->
+                        <a href="#" id="btnGmailDirect" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display: none; background-color: #fef2f2; border-color: #fecaca; color: #991b1b;">
+                            🔴 Gmail ile Gönder
+                        </a>
+                        <button type="button" class="btn btn-secondary btn-sm" id="btnPrintCard">
+                            🖨️ Belgeyi Yazdır / PDF İndir
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-sm" id="btnNewRegistration">
+                            + Yeni Kayıt Yap
+                        </button>
+                    </div>
+
+                    <!-- iOS Kullanıcıları İçin Bilgilendirme Notu -->
+                    <div style="margin-top: 12px; font-size: 12.5px; color: #64748b; line-height: 1.5;">
+                        ℹ️ <strong>İpucu:</strong> iPhone'unuzda varsayılan Apple Mail hesabı tanımlı değilse <strong>"🔴 Gmail ile Gönder"</strong> düğmesine dokunarak doğrudan tarayıcıdan gönderebilirsiniz.
+                    </div>
+
+                    <div class="mail-sent-toast" id="mailToast">
+                        E-posta istemciniz hazırlandı. Lütfen açılan pencerede "Gönder" düğmesine basarak kaydınızı ekibe iletiniz.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 10. AKADEMİK FOOTER (DÖNEM ÖDEVİ KÜNYESİ) -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Bir Damla Hayat Projesi</h4>
+                    <p>
+                        Bu web platformu, İstanbul Esenyurt Üniversitesi Sağlık Hizmetleri Meslek Yüksekokulu 
+                        <strong>Gönüllülük Çalışmaları</strong> dersi kapsamında toplumsal duyarlılık oluşturmak amacıyla hazırlanmıştır.
+                    </p>
+                    <p style="font-size: 12px; color: #64748b;">
+                        &bull; Hedef Alıcı E-posta: <strong>forceb43@gmail.com</strong>
+                    </p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Akademik Bilgiler</h4>
+                    <ul class="student-credits">
+                        <li>
+                            <span>Üniversite & Fakülte:</span>
+                            <strong>İstanbul Esenyurt Üniversitesi - SHMYO</strong>
+                        </li>
+                        <li>
+                            <span>Program:</span>
+                            <strong>Diş Protez Teknolojisi</strong>
+                        </li>
+                        <li>
+                            <span>Ders:</span>
+                            <strong>Gönüllülük Çalışmaları</strong>
+                        </li>
+                        <li>
+                            <span>Danışman Öğretim Elemanı:</span>
+                            <strong>Öğr. Gör. Betül Kaya Başer</strong>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Proje Ekibi</h4>
+                    <ul class="student-credits">
+                        <li>
+                            <span>Çalışma Grubu Adı:</span>
+                            <strong>Bir Damla Hayat</strong>
+                        </li>
+                        <li>
+                            <span>Konu:</span>
+                            <strong>Gönüllü Kan Bağışı Bilinçlendirme & Dijital Kayıt</strong>
+                        </li>
+                        <li>
+                            <span>Teknik Yapı:</span>
+                            <strong>Sunucusuz (Client-Side), Sıfır Dış Bağımlılık</strong>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2026 Bir Damla Hayat - Esenyurt Üniversitesi Sosyal Sorumluluk Çalışması.</span>
+                <span>Tıbbi kan alma süreçleri ve testler Türk Kızılayı yetkisinde yürütülmektedir.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 12. ETKİLEŞİM VE FONKSİYONEL SAF JAVASCRIPT KODLARI -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            
+            // ---------------- A. MOBİL HAMBURGER MENÜ (iOS SAFARI & ANDROID TAM UYUMLU) ----------------
+            const hamburgerBtn = document.getElementById("hamburgerBtn");
+            const navLinks = document.getElementById("navLinks");
+
+            if (hamburgerBtn && navLinks) {
+                let lastToggle = 0;
+
+                function toggleMenu(e) {
+                    const now = Date.now();
+                    // iOS çift tıklama (ghost click) engelleme
+                    if (now - lastToggle < 250) return;
+                    lastToggle = now;
+
+                    if (e && e.type === "touchend") {
+                        e.preventDefault();
+                    }
+
+                    hamburgerBtn.classList.toggle("active");
+                    navLinks.classList.toggle("active");
+                }
+
+                // Hem touchend hem click dinlenir (iOS WebKit garantisi)
+                hamburgerBtn.addEventListener("touchend", toggleMenu, { passive: false });
+                hamburgerBtn.addEventListener("click", toggleMenu);
+
+                navLinks.querySelectorAll("a").forEach(function (link) {
+                    function closeMenu() {
+                        hamburgerBtn.classList.remove("active");
+                        navLinks.classList.remove("active");
+                    }
+                    link.addEventListener("click", closeMenu);
+                    link.addEventListener("touchend", closeMenu);
+                });
+
+                // Menü dışına dokunulduğunda kapatma
+                function closeIfOutside(e) {
+                    if (!hamburgerBtn.contains(e.target) && !navLinks.contains(e.target)) {
+                        hamburgerBtn.classList.remove("active");
+                        navLinks.classList.remove("active");
+                    }
+                }
+                document.addEventListener("click", closeIfOutside);
+                document.addEventListener("touchend", closeIfOutside);
+            }
+
+            // ---------------- B. KAN GRUBU UYUM PANELİ VERİLERİ & LOGİĞİ ----------------
+            const kanVerileri = {
+                "0-": {
+                    verir: ["0-", "0+", "A-", "A+", "B-", "B+", "AB-", "AB+"],
+                    alir: ["0-"],
+                    not: "0 Rh- (Genel Verici): Acil servislerde kan grubu bilinmeyen tüm hastalara verilebilen tek gruptur. Ancak kendisi yalnızca 0 Rh- kan alabilir."
+                },
+                "0+": {
+                    verir: ["0+", "A+", "B+", "AB+"],
+                    alir: ["0-", "0+"],
+                    not: "0 Rh+: Türkiye'de en yaygın bulunan kan grubudur. Tüm Rh pozitif hastalara eritrosit desteği sağlayabilir."
+                },
+                "A-": {
+                    verir: ["A-", "A+", "AB-", "AB+"],
+                    alir: ["0-", "A-"],
+                    not: "A Rh-: Toplumda az bulunan kritik bir gruptur. A ve AB grubu negatif hastalar için hayati değer taşır."
+                },
+                "A+": {
+                    verir: ["A+", "AB+"],
+                    alir: ["0-", "0+", "A-", "A+"],
+                    not: "A Rh+: Hastanelerde ameliyatlarda ve travmalarda en çok talep edilen ve stoklanan gruptur."
+                },
+                "B-": {
+                    verir: ["B-", "B+", "AB-", "AB+"],
+                    alir: ["0-", "B-"],
+                    not: "B Rh-: Nadir rastlanan negatif gruplardandır. Düzenli bağışçısı az olduğu için her ünite çok kıymetlidir."
+                },
+                "B+": {
+                    verir: ["B+", "AB+"],
+                    alir: ["0-", "0+", "B-", "B+"],
+                    not: "B Rh+: B pozitif ve AB pozitif hastalara tam uyumlu eritrosit transferi yapılabilir."
+                },
+                "AB-": {
+                    verir: ["AB-", "AB+"],
+                    alir: ["0-", "A-", "B-", "AB-"],
+                    not: "AB Rh-: En nadir kan grubudur. Plazma bağışında ise 'Genel Plazma Vericisi' olarak kabul edilir."
+                },
+                "AB+": {
+                    verir: ["AB+"],
+                    alir: ["0-", "0+", "A-", "A+", "B-", "B+", "AB-", "AB+"],
+                    not: "AB Rh+ (Genel Alıcı): Tüm kan gruplarından eritrosit alabilir; yalnızca kendi grubuna eritrosit verebilir."
+                }
+            };
+
+            function renderBloodGroup(groupKey) {
+                const data = kanVerileri[groupKey];
+                if (!data) return;
+
+                document.getElementById("badgeGive").textContent = groupKey;
+                document.getElementById("badgeTake").textContent = groupKey;
+                document.getElementById("bloodNoteContent").textContent = data.not;
+
+                const giveWrapper = document.getElementById("listGive");
+                giveWrapper.innerHTML = "";
+                data.verir.forEach(function (g) {
+                    const tag = document.createElement("span");
+                    tag.className = "blood-tag tag-give";
+                    tag.textContent = g;
+                    giveWrapper.appendChild(tag);
+                });
+
+                const takeWrapper = document.getElementById("listTake");
+                takeWrapper.innerHTML = "";
+                data.alir.forEach(function (g) {
+                    const tag = document.createElement("span");
+                    tag.className = "blood-tag tag-take";
+                    tag.textContent = g;
+                    takeWrapper.appendChild(tag);
+                });
+            }
+
+            const bloodChips = document.querySelectorAll(".blood-chip");
+            bloodChips.forEach(function (chip) {
+                chip.addEventListener("click", function () {
+                    bloodChips.forEach(function (c) { c.classList.remove("active"); });
+                    chip.classList.add("active");
+                    renderBloodGroup(chip.getAttribute("data-grup"));
+                });
+            });
+
+            // Başlangıç grubu
+            renderBloodGroup("0-");
+
+            // ---------------- C. BAĞIŞ UYGUNLUK TESTİ DEĞERLENDİRME ----------------
+            const btnEvalQuiz = document.getElementById("btnEvalQuiz");
+            const btnResetQuiz = document.getElementById("btnResetQuiz");
+            const quizFeedbackBox = document.getElementById("quizFeedbackBox");
+
+            btnEvalQuiz.addEventListener("click", function () {
+                const q1 = document.querySelector('input[name="q1"]:checked');
+                const q2 = document.querySelector('input[name="q2"]:checked');
+                const q3 = document.querySelector('input[name="q3"]:checked');
+                const q4 = document.querySelector('input[name="q4"]:checked');
+
+                // Satır vurgularını temizle
+                document.querySelectorAll(".quiz-row").forEach(function (r) { r.classList.remove("error-highlight"); });
+
+                let hasMissing = false;
+                if (!q1) { document.getElementById("rowQ1").classList.add("error-highlight"); hasMissing = true; }
+                if (!q2) { document.getElementById("rowQ2").classList.add("error-highlight"); hasMissing = true; }
+                if (!q3) { document.getElementById("rowQ3").classList.add("error-highlight"); hasMissing = true; }
+                if (!q4) { document.getElementById("rowQ4").classList.add("error-highlight"); hasMissing = true; }
+
+                if (hasMissing) {
+                    quizFeedbackBox.className = "quiz-feedback feedback-warning";
+                    quizFeedbackBox.innerHTML = "<strong>Eksik Yanıt:</strong> Lütfen kırmızı ile vurgulanan soruları işaretleyiniz.";
+                    return;
+                }
+
+                const reasons = [];
+                if (q1.value === "hayir") reasons.push("Kan bağışı için yasal yaş aralığı 18 - 65'tir (ilk bağışta üst sınır 61).");
+                if (q2.value === "hayir") reasons.push("Standart tam kan bağışı için en az 50 kg vücut ağırlığı gerekmektedir.");
+                if (q3.value === "evet") reasons.push("Dövme, piercing veya cerrahi operasyon sonrası 12 ay geçici bekleme süresi bulunmaktadır.");
+                if (q4.value === "evet") reasons.push("Antibiyotik bitimi sonrası en az 48 saat, önceki bağış sonrası erkeklerde 90, kadınlarda 120 gün ara verilmelidir.");
+
+                if (reasons.length === 0) {
+                    quizFeedbackBox.className = "quiz-feedback feedback-success";
+                    quizFeedbackBox.innerHTML = "<strong>Tebrikler, Temel Şartlara Uygunsunuz!</strong><br>Verdiğiniz yanıtlara göre bağış yapmanızda bir engel görünmüyor. Bağış noktasındaki Kızılay doktorunun yapacağı kısa muayenenin ardından güvenle kan verebilirsiniz.";
+                } else {
+                    quizFeedbackBox.className = "quiz-feedback feedback-warning";
+                    quizFeedbackBox.innerHTML = "<strong>Şu An İçin Bekleme Süresi veya Engel Mevcut:</strong><br>&bull; " + reasons.join("<br>&bull; ");
+                }
+            });
+
+            btnResetQuiz.addEventListener("click", function () {
+                document.querySelectorAll('.quiz-card input[type="radio"]').forEach(function (r) { r.checked = false; });
+                document.querySelectorAll(".quiz-row").forEach(function (r) { r.classList.remove("error-highlight"); });
+                quizFeedbackBox.className = "quiz-feedback";
+                quizFeedbackBox.innerHTML = "";
+            });
+
+            // ---------------- D. TABLODAN NOKTA SEÇİP FORMA AKTARMA ----------------
+            document.querySelectorAll(".select-spot-btn").forEach(function (btn) {
+                btn.addEventListener("click", function () {
+                    const spot = btn.getAttribute("data-spot");
+                    const fSpot = document.getElementById("fSpot");
+                    if (fSpot) {
+                        fSpot.value = spot;
+                        fSpot.classList.remove("input-highlight");
+                        void fSpot.offsetWidth; // animasyon yeniden tetiklensin
+                        fSpot.classList.add("input-highlight");
+                    }
+                    document.getElementById("gonullu-kayit").scrollIntoView({ behavior: "smooth" });
+                });
+            });
+
+            // ---------------- E. 10 SORU & CEVAP (TÜRKÇE ARAMA DÜZELTİLDİ: toLocaleLowerCase('tr-TR')) ----------------
+            const faqDatabase = [
+                {
+                    no: 1,
+                    cat: "sartlar",
+                    q: "Kimler kan bağışında bulunabilir?",
+                    a: "18-65 yaş aralığında (ilk bağışta 61 yaş altı), en az 50 kg ağırlığında, önemli bir kronik rahatsızlığı bulunmayan ve bağış günü kendini sağlıklı hisseden herkes bağışta bulunabilir."
+                },
+                {
+                    no: 2,
+                    cat: "surec",
+                    q: "Kan bağışı süreci ne kadar zaman alır?",
+                    a: "Form doldurma, doktor kontrolü, kan alımı (ortalama 6-8 dakika) ve işlem sonrası ikram-dinlenme dahil tüm süreç yaklaşık 15-20 dakikadır."
+                },
+                {
+                    no: 3,
+                    cat: "yanlislar",
+                    q: "Kan bağışında acı veya ağrı hissedilir mi?",
+                    a: "Yalnızca steril iğnenin girişi sırasında birkaç saniyelik hafif bir batma hissedilir. İşlem boyunca ağrı olmaz. Kullanılan tüm malzemeler tek kullanımlıktır ve paketinden gözünüzün önünde açılır."
+                },
+                {
+                    no: 4,
+                    cat: "surec",
+                    q: "Aç karnına mı yoksa tok karnına mı kan verilmelidir?",
+                    a: "Kesinlikle aç karnına gelinmemelidir! Bağıştan 2 saat önce hafif bir yemek yenmiş olması ve son 24 saatte bol su tüketilmiş olması tansiyon düşüşlerini engellemek için şarttır."
+                },
+                {
+                    no: 5,
+                    cat: "sartlar",
+                    q: "Hangi aralıklarla kan bağışlanabilir?",
+                    a: "Tam kan bağışında sağlıklı erkekler 90 günde bir (yılda en fazla 4 kez), sağlıklı kadınlar ise 120 günde bir (yılda en fazla 3 kez) bağışta bulunabilir."
+                },
+                {
+                    no: 6,
+                    cat: "yanlislar",
+                    q: "Kan vermek kilo aldırır mı, zayıflatır mı veya bağımlılık yapar mı?",
+                    a: "Hayır. Kan bağışının metabolizmayı tembelleştirip kilo aldırdığı veya vücutta fizyolojik bağımlılık yaptığı inancı bilimsel açıdan tamamen asılsız bir şehir efsanesidir."
+                },
+                {
+                    no: 7,
+                    cat: "yanlislar",
+                    q: "Verilen 1 ünite kan vücutta ne kadar sürede tamamlanır?",
+                    a: "Bağışlanan yaklaşık 450 ml kanın sıvı (plazma) kısmı 24-48 saat içinde bol su içilerek telafi edilir. Taze kan hücreleri ise kemik iliği tarafından birkaç hafta içinde yenilenir."
+                },
+                {
+                    no: 8,
+                    cat: "sartlar",
+                    q: "Dövme, piercing veya diş tedavisi yaptıranlar ne zaman kan verebilir?",
+                    a: "Dövme, piercing veya cerrahi operasyonlardan sonra enfeksiyon risklerini ekarte etmek için 12 ay beklenmelidir. Basit diş dolgu ve çekimlerinde ise 7 gün beklemek yeterlidir."
+                },
+                {
+                    no: 9,
+                    cat: "sartlar",
+                    q: "Düzenli ilaç kullananlar bağış yapabilir mi?",
+                    a: "Antibiyotik bittikten sonra en az 48 saat geçmelidir. Tansiyon ve kolesterol hastaları, değerleri kontrol altındaysa doktor onayıyla bağış yapabilir. Kararı bağış noktasındaki Kızılay doktoru verir."
+                },
+                {
+                    no: 10,
+                    cat: "surec",
+                    q: "Bağıştan hemen sonra nelere dikkat edilmelidir?",
+                    a: "İkram alanında 10-15 dakika dinlenilmeli, ilk 2 saat sigara içilmemeli, kan verilen kolla ağır yük taşınmamalı ve o gün bol sıvı tüketilmelidir."
+                }
+            ];
+
+            let curFaqCat = "all";
+            let curFaqSearch = "";
+
+            function renderFAQ() {
+                const container = document.getElementById("faqAccordion");
+                container.innerHTML = "";
+
+                const filtered = faqDatabase.filter(function (item) {
+                    const matchCat = curFaqCat === "all" || item.cat === curFaqCat;
+                    // Türkçe karakter duyarlı arama:
+                    const qTr = item.q.toLocaleLowerCase("tr-TR");
+                    const aTr = item.a.toLocaleLowerCase("tr-TR");
+                    const sTr = curFaqSearch.toLocaleLowerCase("tr-TR");
+                    const matchText = qTr.includes(sTr) || aTr.includes(sTr);
+                    return matchCat && matchText;
+                });
+
+                if (filtered.length === 0) {
+                    container.innerHTML = '<div style="padding: 24px; text-align: center; color: var(--muted); background: white; border: 1px solid var(--border); border-radius: var(--radius);">Aramanızla eşleşen bir soru bulunamadı. Lütfen farklı kelimelerle deneyiniz.</div>';
+                    return;
+                }
+
+                filtered.forEach(function (item, index) {
+                    const itemDiv = document.createElement("div");
+                    itemDiv.className = "faq-item" + (index === 0 && curFaqSearch === "" ? " open" : "");
+
+                    const btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.className = "faq-btn";
+                    btn.innerHTML = '<span>' + item.no + '. ' + item.q + '</span><span class="faq-icon-indicator">+</span>';
+
+                    const ans = document.createElement("div");
+                    ans.className = "faq-answer";
+                    ans.textContent = item.a;
+
+                    btn.addEventListener("click", function () {
+                        itemDiv.classList.toggle("open");
+                    });
+
+                    itemDiv.appendChild(btn);
+                    itemDiv.appendChild(ans);
+                    container.appendChild(itemDiv);
+                });
+            }
+
+            document.querySelectorAll(".pill-btn").forEach(function (pill) {
+                pill.addEventListener("click", function () {
+                    document.querySelectorAll(".pill-btn").forEach(function (p) { p.classList.remove("active"); });
+                    pill.classList.add("active");
+                    curFaqCat = pill.getAttribute("data-cat");
+                    renderFAQ();
+                });
+            });
+
+            document.getElementById("faqSearchInput").addEventListener("input", function (e) {
+                curFaqSearch = e.target.value.trim();
+                renderFAQ();
+            });
+
+            renderFAQ();
+
+            // ---------------- F. VERİTABANI (LOCALSTORAGE) & FORM & MAILTO ENTEGRASYONU ----------------
+            let volunteerCount = parseInt(localStorage.getItem("bdh_volunteers_count") || "142", 10);
+            
+            function updateCounters() {
+                document.getElementById("statVolunteers").textContent = volunteerCount;
+                document.getElementById("statLives").textContent = volunteerCount * 3;
+            }
+            updateCounters();
+
+            function getVolunteersList() {
+                try {
+                    return JSON.parse(localStorage.getItem("bdh_volunteers_list") || "[]");
+                } catch (e) {
+                    return [];
+                }
+            }
+
+            function saveVolunteerRecord(record) {
+                const list = getVolunteersList();
+                list.unshift(record); // en yenisi en başa
+                localStorage.setItem("bdh_volunteers_list", JSON.stringify(list));
+            }
+
+            // Son oluşturulan kayıt verisi (Mailto için hazır tutulur)
+            let lastSubmission = null;
+
+            const volunteerForm = document.getElementById("volunteerForm");
+            const kayitFormKapsayici = document.getElementById("kayitFormKapsayici");
+            const certContainer = document.getElementById("certContainer");
+            const formErrorBox = document.getElementById("formErrorBox");
+
+            volunteerForm.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const nameVal = document.getElementById("fName").value.trim();
+                const bloodVal = document.getElementById("fBlood").value;
+                const contactVal = document.getElementById("fContact").value.trim();
+                const spotVal = document.getElementById("fSpot").value;
+
+                // Format kontrolü: Ad en az 3 harf, iletişim en az 5 karakter
+                if (!nameVal || nameVal.length < 3 || !bloodVal || !contactVal || contactVal.length < 5) {
+                    formErrorBox.style.display = "block";
+                    formErrorBox.textContent = "Lütfen adınızı tam giriniz ve geçerli bir iletişim bilgisi (telefon veya e-posta) yazınız.";
+                    return;
+                }
+                formErrorBox.style.display = "none";
+
+                volunteerCount += 1;
+                localStorage.setItem("bdh_volunteers_count", volunteerCount.toString());
+                updateCounters();
+
+                const todayStr = new Date().toLocaleDateString("tr-TR");
+                const badgeIdStr = "#BDH-" + volunteerCount;
+
+                // Kaydı veritabanına (localStorage) ekle
+                lastSubmission = {
+                    badgeId: badgeIdStr,
+                    name: nameVal,
+                    blood: bloodVal,
+                    contact: contactVal,
+                    spot: spotVal,
+                    date: todayStr
+                };
+                saveVolunteerRecord(lastSubmission);
+
+                // Sertifika kartını doldur
+                document.getElementById("certBadgeId").textContent = badgeIdStr;
+                document.getElementById("certName").textContent = nameVal;
+                document.getElementById("certBlood").textContent = bloodVal;
+                document.getElementById("certLocation").textContent = spotVal;
+                document.getElementById("certDate").textContent = todayStr;
+
+                // ---------------- G. MAILTO & GMAIL BAĞLANTILARI (iOS SAFARI GARANTİLİ) ----------------
+                const recipient = "forceb43@gmail.com";
+                const subjectText = "Yeni Gönüllü Kan Bağışçısı Kaydı - " + lastSubmission.name + " (" + lastSubmission.badgeId + ")";
+                
+                const bodyText = 
+                    "Sayın Bir Damla Hayat Proje Ekibi ve Yetkilileri,\r\n\r\n" +
+                    "Web platformunuz üzerinden gönüllü kan bağışçısı olarak kaydımı tamamladım. Detaylarım aşağıdadır:\r\n\r\n" +
+                    "------------------------------------------\r\n" +
+                    "Belge No     : " + lastSubmission.badgeId + "\r\n" +
+                    "Ad Soyad     : " + lastSubmission.name + "\r\n" +
+                    "Kan Grubu    : " + lastSubmission.blood + "\r\n" +
+                    "İletişim     : " + lastSubmission.contact + "\r\n" +
+                    "Bağış Noktası: " + lastSubmission.spot + "\r\n" +
+                    "Kayıt Tarihi : " + lastSubmission.date + "\r\n" +
+                    "------------------------------------------\r\n\r\n" +
+                    "Esenyurt Üniversitesi SHMYO Gönüllülük Çalışmaları Projenizi tebrik eder, iyi çalışmalar dilerim.";
+
+                const mailtoUrl = "mailto:" + recipient + "?subject=" + encodeURIComponent(subjectText) + "&body=" + encodeURIComponent(bodyText);
+                
+                // Ana E-Posta Butonunun doğrudan href'ini güncelle
+                const sendMailBtn = document.getElementById("btnSendMail");
+                sendMailBtn.href = mailtoUrl;
+
+                // Yedek Doğrudan Gmail Web Linki (Telefonda varsayılan mail hesabı yoksa anında Safari'de Gmail açar)
+                const gmailDirectUrl = "https://mail.google.com/mail/?view=cm&fs=1&to=" + recipient + "&su=" + encodeURIComponent(subjectText) + "&body=" + encodeURIComponent(bodyText);
+                const btnGmailDirect = document.getElementById("btnGmailDirect");
+                if (btnGmailDirect) {
+                    btnGmailDirect.href = gmailDirectUrl;
+                    btnGmailDirect.style.display = "inline-flex";
+                }
+
+                kayitFormKapsayici.style.display = "none";
+                certContainer.style.display = "block";
+                certContainer.scrollIntoView({ behavior: "smooth" });
+            });
+
+            // iOS ve tüm cihazlar için mail linkine tıklandığında toast göster
+            const sendMailBtn = document.getElementById("btnSendMail");
+            function handleMailClick() {
+                const toast = document.getElementById("mailToast");
+                if (toast) toast.style.display = "block";
+            }
+            sendMailBtn.addEventListener("click", handleMailClick);
+            sendMailBtn.addEventListener("touchend", handleMailClick);
+
+            // Yazdır / PDF
+            document.getElementById("btnPrintCard").addEventListener("click", function () {
+                window.print();
+            });
+
+            // Yeni Kayıt Yap
+            document.getElementById("btnNewRegistration").addEventListener("click", function () {
+                volunteerForm.reset();
+                document.getElementById("mailToast").style.display = "none";
+                certContainer.style.display = "none";
+                kayitFormKapsayici.style.display = "block";
+            });
+
+        });
+    </script>
+</body>
+</html>
